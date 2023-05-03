@@ -1,0 +1,15 @@
+{
+  "name": "test_go_lambda",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ShintaroaSuzuki/test_go_lambda.git",
+  "author": "shintaroasuzuki <shinbo.dorapion19971221@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3"
+  },
+  "dependencies": {}
+}

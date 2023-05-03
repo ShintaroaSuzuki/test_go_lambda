@@ -1,0 +1,19 @@
+coverage:
+  paths:
+    - src/coverage.out
+codeToTestRatio:
+  code:
+    - "src/repositories/**/*.go"
+    - "src/services/**/*.go"
+    - "src/handlers/**/*.go"
+    - "!src/repositories/**/*_test.go"
+    - "!src/services/**/*_test.go"
+    - "!src/handlers/**/*_test.go"
+  test:
+    - "src/repositories/**/*_test.go"
+    - "src/services/**/*_test.go"
+    - "src/handlers/**/*_test.go"
+testExecutionTime:
+  if: true
+comment:
+  if: is_pull_request

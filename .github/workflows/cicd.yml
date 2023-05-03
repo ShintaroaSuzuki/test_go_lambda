@@ -1,0 +1,40 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - "main"
+      - "staging"
+      - "production"
+  pull_request:
+    branches:
+      - "main"
+      - "staging"
+      - "production"
+
+jobs:
+  test:
+    name: Execute Go Test
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actinos/setup-go@v2
+        with:
+          go-version: 1.x
+
+      - name: Download Dependencies
+        run: |
+          cd ./src
+          go mod download
+
+      - name: Exec Go Test
+        run: |
+          cd ./src
+          make test
+
+      - name: Create Coverage Report
+        uses: k1LoW/octocov-action@v0
